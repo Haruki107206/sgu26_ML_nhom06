@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+# The official raw workbook is large and should be downloaded locally, not committed.
+data/raw/*
+!data/raw/.gitkeep
+outputs/figures/*
+!outputs/figures/.gitkeep
+outputs/tables/*
+!outputs/tables/.gitkeep
