@@ -1,0 +1,7 @@
+﻿Bước,Số dòng bị loại ở bước,Số dòng sau bước
+Dữ liệu gốc,0,1067371
+Loại trùng hoàn toàn,34335,1033036
+Loại thiếu CustomerID,235151,797885
+Loại hóa đơn hủy (mã bắt đầu bằng C),18390,779495
+"Loại Quantity <= 0, UnitPrice <= 0 hoặc ngày không hợp lệ",70,779425
+Dữ liệu còn lại dùng cho RFM,0,779425
