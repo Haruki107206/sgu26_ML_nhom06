@@ -1,0 +1,34 @@
+﻿model,parameters,clusters_excluding_noise,noise_points,noise_percent,silhouette_excluding_noise,inertia,cluster_sizes,evaluated_customers,evaluation_note
+KMeans_baseline,n_clusters=3; init=k-means++; n_init=20; random_state=42,3,0,0.0,0.3565814819436876,2087.3096336972485,"{""0"": 828, ""1"": 417, ""2"": 755}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+KMeans_tuned,n_clusters=2; init=k-means++; n_init=20; random_state=42,2,0,0.0,0.42458765268553345,2855.724476610837,"{""0"": 1162, ""1"": 838}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+KMeans_tuned,n_clusters=3; init=k-means++; n_init=20; random_state=42,3,0,0.0,0.3565814819436876,2087.3096336972485,"{""0"": 828, ""1"": 417, ""2"": 755}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+KMeans_tuned,n_clusters=4; init=k-means++; n_init=20; random_state=42,4,0,0.0,0.3660706957625689,1630.0533402519434,"{""0"": 475, ""1"": 410, ""2"": 428, ""3"": 687}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+KMeans_tuned,n_clusters=5; init=k-means++; n_init=20; random_state=42,5,0,0.0,0.33927217123931047,1350.8380382164246,"{""0"": 376, ""1"": 581, ""2"": 442, ""3"": 449, ""4"": 152}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+KMeans_tuned,n_clusters=6; init=k-means++; n_init=20; random_state=42,6,0,0.0,0.3319061903442712,1175.403456067115,"{""0"": 259, ""1"": 292, ""2"": 425, ""3"": 162, ""4"": 511, ""5"": 351}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+KMeans_tuned,n_clusters=7; init=k-means++; n_init=20; random_state=42,7,0,0.0,0.31917544116069707,1042.6933151059081,"{""0"": 254, ""1"": 255, ""2"": 299, ""3"": 390, ""4"": 99, ""5"": 261, ""6"": 442}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+KMeans_tuned,n_clusters=8; init=k-means++; n_init=20; random_state=42,8,0,0.0,0.2995422854485507,948.6356498154641,"{""0"": 316, ""1"": 370, ""2"": 192, ""3"": 240, ""4"": 363, ""5"": 108, ""6"": 207, ""7"": 204}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+Hierarchical_Ward,n_clusters=2; linkage=ward,2,0,0.0,0.3329022373008572,,"{""0"": 1081, ""1"": 919}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+Hierarchical_Ward,n_clusters=3; linkage=ward,3,0,0.0,0.30820401655937313,,"{""0"": 919, ""1"": 704, ""2"": 377}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+Hierarchical_Ward,n_clusters=4; linkage=ward,4,0,0.0,0.28670851194549596,,"{""0"": 704, ""1"": 503, ""2"": 377, ""3"": 416}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+Hierarchical_Ward,n_clusters=5; linkage=ward,5,0,0.0,0.2715594373588692,,"{""0"": 377, ""1"": 503, ""2"": 379, ""3"": 416, ""4"": 325}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+Hierarchical_Ward,n_clusters=6; linkage=ward,6,0,0.0,0.2687664811218765,,"{""0"": 503, ""1"": 416, ""2"": 379, ""3"": 281, ""4"": 325, ""5"": 96}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+Hierarchical_Ward,n_clusters=7; linkage=ward,7,0,0.0,0.23535416874891116,,"{""0"": 379, ""1"": 416, ""2"": 96, ""3"": 281, ""4"": 325, ""5"": 298, ""6"": 205}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+Hierarchical_Ward,n_clusters=8; linkage=ward,8,0,0.0,0.24388227626256054,,"{""0"": 291, ""1"": 416, ""2"": 96, ""3"": 281, ""4"": 325, ""5"": 298, ""6"": 205, ""7"": 88}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.25; min_samples=5; metric=euclidean,11,316,15.8,-0.00831829067041366,,"{""-1"": 316, ""0"": 506, ""1"": 657, ""2"": 280, ""3"": 173, ""4"": 11, ""5"": 14, ""6"": 11, ""7"": 6, ""8"": 7, ""9"": 5, ""10"": 14}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.25; min_samples=10; metric=euclidean,5,600,30.0,0.10286981910000988,,"{""-1"": 600, ""0"": 462, ""1"": 252, ""2"": 149, ""3"": 526, ""4"": 11}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.25; min_samples=20; metric=euclidean,8,1288,64.4,0.33545324327610426,,"{""-1"": 1288, ""0"": 344, ""1"": 49, ""2"": 162, ""3"": 39, ""4"": 37, ""5"": 20, ""6"": 28, ""7"": 33}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.35; min_samples=5; metric=euclidean,2,108,5.4,0.2998712712426669,,"{""-1"": 108, ""0"": 518, ""1"": 1374}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.35; min_samples=10; metric=euclidean,7,206,10.299999999999999,0.05469308290871872,,"{""-1"": 206, ""0"": 509, ""1"": 286, ""2"": 960, ""3"": 6, ""4"": 15, ""5"": 14, ""6"": 4}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.35; min_samples=20; metric=euclidean,3,455,22.75,0.20803506625688742,,"{""-1"": 455, ""0"": 482, ""1"": 267, ""2"": 796}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.45; min_samples=5; metric=euclidean,3,48,2.4,0.25773039392037217,,"{""-1"": 48, ""0"": 528, ""1"": 1420, ""2"": 4}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.45; min_samples=10; metric=euclidean,2,83,4.15,0.29700927092356993,,"{""-1"": 83, ""0"": 517, ""1"": 1400}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.45; min_samples=20; metric=euclidean,2,194,9.700000000000001,0.31641326223140187,,"{""-1"": 194, ""0"": 510, ""1"": 1296}",2000,Silhouette trên điểm không nhiễu; không tính được nếu <2 cụm.
+DBSCAN,eps=0.6; min_samples=5; metric=euclidean,1,19,0.95,,,"{""-1"": 19, ""0"": 1981}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
+DBSCAN,eps=0.6; min_samples=10; metric=euclidean,1,30,1.5,,,"{""-1"": 30, ""0"": 1970}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
+DBSCAN,eps=0.6; min_samples=20; metric=euclidean,1,41,2.0500000000000003,,,"{""-1"": 41, ""0"": 1959}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
+DBSCAN,eps=0.8; min_samples=5; metric=euclidean,1,9,0.44999999999999996,,,"{""-1"": 9, ""0"": 1991}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
+DBSCAN,eps=0.8; min_samples=10; metric=euclidean,1,13,0.65,,,"{""-1"": 13, ""0"": 1987}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
+DBSCAN,eps=0.8; min_samples=20; metric=euclidean,1,20,1.0,,,"{""-1"": 20, ""0"": 1980}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
+DBSCAN,eps=1.0; min_samples=5; metric=euclidean,1,3,0.15,,,"{""-1"": 3, ""0"": 1997}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
+DBSCAN,eps=1.0; min_samples=10; metric=euclidean,1,5,0.25,,,"{""-1"": 5, ""0"": 1995}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
+DBSCAN,eps=1.0; min_samples=20; metric=euclidean,1,9,0.44999999999999996,,,"{""-1"": 9, ""0"": 1991}",2000,Không có ít nhất 2 cụm hợp lệ; silhouette không xác định.
