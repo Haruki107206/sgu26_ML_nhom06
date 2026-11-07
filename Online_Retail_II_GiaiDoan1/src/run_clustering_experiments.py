@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -24,6 +25,8 @@ SILHOUETTE_SAMPLE_SIZE = 1000
 
 
 def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     TABLES.mkdir(parents=True, exist_ok=True)
     FIGURES.mkdir(parents=True, exist_ok=True)
     if not RFM_FILE.exists():
@@ -196,7 +199,7 @@ def main() -> None:
                 for c in sorted(valid_customer.cluster.unique())]
         labels_order = [str(c) for c in sorted(valid_customer.cluster.unique())]
         if data:
-            ax.boxplot(data, labels=labels_order, showfliers=False)
+            ax.boxplot(data, tick_labels=labels_order, showfliers=False)
         ax.set_title(f"{feature} theo cụm")
         ax.set_xlabel("Cụm")
         ax.set_ylabel(feature)
