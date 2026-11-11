@@ -3,8 +3,9 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import date
+from datetime import datetime
 from pathlib import Path
+import uuid
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -24,7 +25,56 @@ SAMPLE_SIZE = 2000
 SILHOUETTE_SAMPLE_SIZE = 1000
 
 
+def append_experiment_log(new_rows: pd.DataFrame, log_path: Path) -> None:
+    """Append new experiment rows while preserving all previous runs.
+
+    Older versions stored the sampled row count in `Rows_After_Preprocessing`.
+    Migrate that column to the explicit `Sample_Rows_For_Clustering` name.
+    """
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if log_path.exists():
+        try:
+            old_log = pd.read_csv(log_path)
+        except Exception as exc:
+            # Fail safely: never replace a history file that cannot be read.
+            raise RuntimeError(
+                f"Không đọc được nhật ký cũ {log_path}; đã dừng để tránh ghi đè/mất dữ liệu."
+            ) from exc
+
+        if "Rows_After_Preprocessing" in old_log.columns:
+            old_sample_rows = old_log.pop("Rows_After_Preprocessing")
+            if "Sample_Rows_For_Clustering" in old_log.columns:
+                old_log["Sample_Rows_For_Clustering"] = (
+                    old_log["Sample_Rows_For_Clustering"].fillna(old_sample_rows)
+                )
+            else:
+                # In the previous script this field was assigned `sample_n`.
+                old_log["Sample_Rows_For_Clustering"] = old_sample_rows
+
+        if "Run_ID" not in old_log.columns:
+            old_log.insert(0, "Run_ID", "LEGACY_UNKNOWN")
+        else:
+            old_log["Run_ID"] = old_log["Run_ID"].fillna("LEGACY_UNKNOWN")
+    else:
+        old_log = pd.DataFrame()
+
+    combined = pd.concat([old_log, new_rows], ignore_index=True, sort=False)
+
+    # Write to a temporary file first, then replace the log atomically.
+    temp_path = log_path.with_name(f"{log_path.stem}.tmp{log_path.suffix}")
+    try:
+        combined.to_csv(temp_path, index=False, encoding="utf-8-sig")
+        temp_path.replace(log_path)
+    finally:
+        if temp_path.exists():
+            temp_path.unlink()
+
+
 def main() -> None:
+    run_started_at = datetime.now().astimezone()
+    run_id = f"{run_started_at.strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     TABLES.mkdir(parents=True, exist_ok=True)
@@ -36,7 +86,13 @@ def main() -> None:
     missing = sorted(set(FEATURES) - set(rfm.columns))
     if missing:
         raise ValueError(f"Thiếu các đặc trưng RFM bắt buộc: {missing}")
+
+    rfm_rows_before_dropna = len(rfm)
     rfm = rfm.dropna(subset=FEATURES).copy()
+    rfm_rows_after_dropna = len(rfm)
+    unique_customers_after_cleaning = (
+        int(rfm["CustomerID"].nunique()) if "CustomerID" in rfm.columns else rfm_rows_after_dropna
+    )
     if (rfm[FEATURES] < 0).any().any():
         raise ValueError("RFM có giá trị âm; kiểm tra lại quy tắc tạo bảng RFM trước khi log1p.")
 
@@ -47,6 +103,14 @@ def main() -> None:
     scaler = StandardScaler()
     X = scaler.fit_transform(transformed)
     eval_n = min(SILHOUETTE_SAMPLE_SIZE, sample_n)
+    sampled_unique_customers = (
+        int(sample["CustomerID"].nunique()) if "CustomerID" in sample.columns else sample_n
+    )
+    evaluation_sample = sample.iloc[:eval_n]
+    evaluated_unique_customers = (
+        int(evaluation_sample["CustomerID"].nunique())
+        if "CustomerID" in evaluation_sample.columns else eval_n
+    )
     X_eval = X[:eval_n]
     pd.DataFrame({"feature": FEATURES, "mean_after_log1p": transformed.mean().values,
                   "std_after_log1p": transformed.std(ddof=0).values,
@@ -222,19 +286,41 @@ def main() -> None:
     log_rows = []
     for i, row in scores.iterrows():
         log_rows.append({
-            "Experiment_ID": f"CL-{i+1:03d}", "Date": date.today().isoformat(),
+            "Run_ID": run_id,
+            "Experiment_ID": f"CL-{i+1:03d}",
+            "Run_Started_At": run_started_at.isoformat(timespec="seconds"),
+            "Date": run_started_at.date().isoformat(),
             "Research_Question": "Các phương pháp phân cụm phân biệt hành vi khách hàng RFM ra sao?",
             "Dataset_Version": "Online Retail II UCI; outputs/tables/rfm_table.csv",
-            "Rows_After_Preprocessing": sample_n, "Feature_Set": "Recency, Frequency, Monetary",
-            "Algorithm": row["model"], "Hyperparameters": row["parameters"],
-            "Validation_Strategy": f"Mẫu ngẫu nhiên cố định n={sample_n}; cùng {eval_n} khách hàng đánh giá; seed={SEED}; silhouette không giám sát",
+            "RFM_Rows_Before_DropNA": rfm_rows_before_dropna,
+            "RFM_Rows_After_DropNA": rfm_rows_after_dropna,
+            "Unique_Customers_After_RFM_Cleaning": unique_customers_after_cleaning,
+            "Sample_Rows_For_Clustering": sample_n,
+            "Unique_Customers_Sampled": sampled_unique_customers,
+            "Evaluation_Rows_For_Silhouette": eval_n,
+            "Unique_Customers_Evaluated": evaluated_unique_customers,
+            "Feature_Set": "Recency, Frequency, Monetary",
+            "Algorithm": row["model"],
+            "Hyperparameters": row["parameters"],
+            "Validation_Strategy": (
+                f"Mẫu ngẫu nhiên cố định n={sample_n}; cùng {eval_n} dòng đánh giá; "
+                f"seed={SEED}; silhouette không giám sát"
+            ),
             "Scaling": "log1p + StandardScaler fit trên mẫu cố định",
             "Metric_Name": "Silhouette (excluding DBSCAN noise); inertia for KMeans",
-            "Metric_Value": row["silhouette_excluding_noise"], "Random_State": SEED,
-            "Observation": f"k={row['clusters_excluding_noise']}; noise={row['noise_percent']:.2f}%; sizes={row['cluster_sizes']}",
-            "Next_Action": "So sánh hồ sơ cụm; đánh giá độ ổn định bằng nhiều seed/bootstraps trước khi kết luận cuối."
+            "Metric_Value": row["silhouette_excluding_noise"],
+            "Random_State": SEED,
+            "Observation": (
+                f"k={row['clusters_excluding_noise']}; "
+                f"noise={row['noise_percent']:.2f}%; sizes={row['cluster_sizes']}"
+            ),
+            "Next_Action": (
+                "So sánh hồ sơ cụm; đánh giá độ ổn định bằng nhiều seed/bootstraps "
+                "trước khi kết luận cuối."
+            ),
         })
-    pd.DataFrame(log_rows).to_csv(LOG, index=False, encoding="utf-8-sig")
+
+    append_experiment_log(pd.DataFrame(log_rows), LOG)
     print(f"Đã lưu {len(scores)} cấu hình, mô hình chọn: {winner_name}")
     print(f"Silhouette={winner_row['silhouette_excluding_noise']:.4f}; số cụm={int(winner_row['clusters_excluding_noise'])}; noise={winner_row['noise_percent']:.2f}%")
     print(f"Bảng: {TABLES}; hình: {FIGURES}; experiment log: {LOG}")
