@@ -19,19 +19,16 @@ records = [
         "Tieu_de_commit": "Initial commit",
         "Files_thay_doi": "README.md (1 file, 1 deletion)",
         "Nhiem_vu": (
-            "Khoi tao repository du an may hoc SGU Nhom 06 tren GitHub."
+            "Khởi tạo repository dự án máy học SGU Nhóm 06 trên GitHub."
         ),
         "Kho_khan_van_de": (
-            "Phat hien khong the dung chung 1 environment Python tren may cua tung thanh vien "
-            "vi moi may co phien ban Python va thu vien cai khac nhau, "
-            "khong chay lai duoc notebook tren may khac."
+            "Phát hiện không thể dùng chung 1 environment Python trên máy của từng thành viên vì mỗi máy có phiên bản Python và thư viện cài khác nhau, không chạy lại được notebook trên máy khác."
         ),
         "Giai_phap_khac_phuc": (
-            "Thong nhat tao file requirements.txt chia se chung; "
-            "moi thanh vien tu cai bang lenh: python -m pip install -r requirements.txt."
+            "Thống nhất tạo file requirements.txt chia sẻ chung; mỗi thành viên tự cài bằng lệnh: python -m pip install -r requirements.txt."
         ),
-        "Ket_qua": "Repository GitHub duoc khoi tao, cac thanh vien clone ve may thanh cong.",
-        "Trang_thai": "HOAN THANH",
+        "Ket_qua": "Repository GitHub được khởi tạo, các thành viên clone về máy thành công.",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "Git commit c8e8ed6",
     },
     {
@@ -40,7 +37,7 @@ records = [
         "Thanh_vien": "Nguyễn Hoàng Quy",
         "Git_Username": "Haruki107206",
         "Ma_Commit": "b9db6cc",
-        "Tieu_de_commit": "Up cac file dau tien cua du an",
+        "Tieu_de_commit": "Đưa các file đầu tiên của dự án lên",
         "Files_thay_doi": (
             "01_Kham_pha_du_lieu_va_RFM.ipynb, .gitignore, README.md, "
             "requirements.txt, src/download_dataset.py, docs/Ke_hoach_trien_khai.md, "
@@ -48,23 +45,18 @@ records = [
             "(11 files, 2316 insertions)"
         ),
         "Nhiem_vu": (
-            "Dua khung du an len GitHub: Notebook 01 EDA, script tai du lieu tu UCI, "
-            "cau truc thu muc data/raw, outputs, logs, docs va requirements."
+            "Đưa khung dự án lên GitHub: Notebook 01 EDA, script tải dữ liệu từ UCI, cấu trúc thư mục data/raw, outputs, logs, docs và requirements."
         ),
         "Kho_khan_van_de": (
-            "File Excel goc online_retail_II.xlsx nang ~45MB vi pham gioi han push cua GitHub "
-            "(100 MB hard limit), gay canh bao va lam repo phong to, "
-            "ton bang thong khi clone cho cac thanh vien."
+            "File Excel gốc online_retail_II.xlsx nặng ~45MB vi phạm giới hạn push của GitHub (100 MB hard limit), gây cảnh báo và làm repo phồng to, tốn băng thông khi clone cho các thành viên."
         ),
         "Giai_phap_khac_phuc": (
-            "Them data/raw/ vao .gitignore de khong bao gio commit du lieu goc. "
-            "Viet script src/download_dataset.py tu dong tai dataset tu UCI API khi can thiet."
+            "Thêm data/raw/ vào .gitignore để không bao giờ commit dữ liệu gốc. Viết script src/download_dataset.py tự động tải dataset từ UCI API khi cần thiết."
         ),
         "Ket_qua": (
-            "Khung thu muc chuan (data, docs, logs, outputs/figures, outputs/tables, src), "
-            "README va huong dan mo truong day du."
+            "Khung thư mục chuẩn (data, docs, logs, outputs/figures, outputs/tables, src), README và hướng dẫn môi trường đầy đủ."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "Git commit b9db6cc, .gitignore, README.md",
     },
     {
@@ -73,37 +65,23 @@ records = [
         "Thanh_vien": "Nguyễn Hoàng Quy",
         "Git_Username": "Haruki107206",
         "Ma_Commit": "32a15c7",
-        "Tieu_de_commit": "ket qua phan tich du lieu va bieu do EDA",
+        "Tieu_de_commit": "kết quả phân tích dữ liệu và biểu đồ EDA",
         "Files_thay_doi": (
-            "01_Kham_pha_du_lieu_va_RFM.ipynb, "
-            "7 bieu do PNG (01-07), eda_summary.csv, missing_values_summary.csv, "
-            "preprocessing_summary.csv, rfm_table.csv "
-            "(13 files, 5922 insertions)"
+            "01_Kham_pha_du_lieu_va_RFM.ipynb, 7 biểu đồ PNG (01-07), eda_summary.csv, missing_values_summary.csv, preprocessing_summary.csv, rfm_table.csv (13 files, 5922 insertions)"
         ),
         "Nhiem_vu": (
-            "Hoan thien Notebook 01: Phan tich kham pha du lieu (EDA), "
-            "xay dung quy tac lam sach va tao bang RFM 5878 khach hang."
+            "Hoàn thiện Notebook 01: Phân tích khám phá dữ liệu (EDA), xây dựng quy tắc làm sạch và tạo bảng RFM 5878 khách hàng."
         ),
         "Kho_khan_van_de": (
-            "PHAT HIEN LOI DU LIEU NGHIEM TRONG: Khi tinh Monetary = Quantity x UnitPrice "
-            "va goi np.log1p(), script van loi ValueError voi 320 khach hang co Monetary am. "
-            "Nguyen nhan: hoa don huy (ma bat dau bang 'C') co Quantity am lam tong chi tieu am. "
-            "Ngoai ra phat hien 243.007 dong (22.77%) thieu CustomerID "
-            "va 34.335 ban ghi trung hoan toan."
+            "PHÁT HIỆN LỖI DỮ LIỆU NGHIÊM TRỌNG: Khi tính Monetary = Quantity x UnitPrice và gọi np.log1p(), script vẫn lỗi ValueError với 320 khách hàng có Monetary âm. Nguyên nhân: hóa đơn hủy (mã bắt đầu bằng 'C') có Quantity âm làm tổng chi tiêu âm. Ngoài ra phát hiện 243.007 dòng (22.77%) thiếu CustomerID và 34.335 bản ghi trùng hoàn toàn."
         ),
         "Giai_phap_khac_phuc": (
-            "Bo sung 4 buoc loc nghiem ngat theo thu tu: "
-            "(1) Loai 34.335 ban ghi trung; "
-            "(2) Loai 235.151 dong thieu CustomerID; "
-            "(3) Loai 18.390 hoa don huy ma C; "
-            "(4) Loai 70 dong Quantity<=0 hoac UnitPrice<=0. "
-            "Them assert (rfm['Monetary'] > 0).all() de bao ve pipeline."
+            "Bổ sung 4 bước lọc nghiêm ngặt theo thứ tự: (1) Loại 34.335 bản ghi trùng; (2) Loại 235.151 dòng thiếu CustomerID; (3) Loại 18.390 hóa đơn hủy mã C; (4) Loại 70 dòng Quantity<=0 hoặc UnitPrice<=0. Thêm assert (rfm['Monetary'] > 0).all() để bảo vệ pipeline."
         ),
         "Ket_qua": (
-            "Bang RFM sach 5.878 khach hang, 0 gia tri am, 0 null. "
-            "7 bieu do EDA (01-07) va 3 bang tom tat da xuat thanh cong."
+            "Bảng RFM sạch 5.878 khách hàng, 0 giá trị âm, 0 null. 7 biểu đồ EDA (01-07) và 3 bảng tóm tắt đã xuất thành công."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "outputs/tables/rfm_table.csv, outputs/figures/01-07, preprocessing_summary.csv",
     },
     {
@@ -112,37 +90,23 @@ records = [
         "Thanh_vien": "Trần Thiên Hùng",
         "Git_Username": "hung",
         "Ma_Commit": "0409e57",
-        "Tieu_de_commit": "Thuc nghiem phan cum",
+        "Tieu_de_commit": "Thực nghiệm phân cụm",
         "Files_thay_doi": (
-            "02_Thuc_nghiem_phan_cum.ipynb (moi, 1112 insertions), "
-            "src/run_clustering_experiments.py (moi, 241 insertions), "
-            "experiment_log.csv (+34 dong), 7 bieu do EDA cap nhat, "
-            "8 bang dau ra phan cum "
-            "(22 files, 3559 insertions)"
+            "02_Thuc_nghiem_phan_cum.ipynb (mới, 1112 insertions), src/run_clustering_experiments.py (mới, 241 insertions), experiment_log.csv (+34 dòng), 7 biểu đồ EDA cập nhật, 8 bảng đầu ra phân cụm (22 files, 3559 insertions)"
         ),
         "Nhiem_vu": (
-            "Xay dung Notebook 02 va script thuc nghiem: chay baseline K-Means k=3, "
-            "K-Means k=2..8, Hierarchical Ward k=2..8 va DBSCAN grid search. "
-            "Ghi 33 cau hinh vao experiment log. Chon K-Means k=2 (Silhouette 0.4246)."
+            "Xây dựng Notebook 02 và script thực nghiệm: chạy baseline K-Means k=3, K-Means k=2..8, Hierarchical Ward k=2..8 và DBSCAN grid search. Ghi 33 cấu hình vào experiment log. Chọn K-Means k=2 (Silhouette 0.4246)."
         ),
         "Kho_khan_van_de": (
-            "PHAT HIEN LOI TIEN XU LY: Chay DBSCAN tren du lieu RFM tho (chua chuan hoa) "
-            "voi eps=50.0: 99.8% diem bi gan la nhieu (-1), khong tim ra cum nao co y nghia. "
-            "Nguyen nhan: Monetary (hang nghin GBP) lan at Recency (ngay) va Frequency (so don) "
-            "trong khong gian Euclidean vi su chenh lech thang do qua lon."
+            "PHÁT HIỆN LỖI TIỀN XỬ LÝ: Chạy DBSCAN trên dữ liệu RFM thô (chưa chuẩn hóa) với eps=50.0: 99.8% điểm bị gán là nhiễu (-1), không tìm ra cụm nào có ý nghĩa. Nguyên nhân: Monetary (hàng nghìn GBP) lấn át Recency (ngày) và Frequency (số đơn) trong không gian Euclidean vì sự chênh lệch thang đo quá lớn."
         ),
         "Giai_phap_khac_phuc": (
-            "Bat buoc ap dung log1p(x) de nen phan phoi lech phai cua Frequency va Monetary, "
-            "sau do StandardScaler dua ve mean=0, std=1. "
-            "Dieu chinh eps DBSCAN ve khoang 0.25-1.0. "
-            "Dung mau co dinh 2000 khach hang (seed=42) de so sanh cong bang giua cac thuat toan."
+            "Bắt buộc áp dụng log1p(x) để nén phân phối lệch phải của Frequency và Monetary, sau đó StandardScaler đưa về mean=0, std=1. Điều chỉnh eps DBSCAN về khoảng 0.25-1.0. Dùng mẫu cố định 2000 khách hàng (seed=42) để so sánh công bằng giữa các thuật toán."
         ),
         "Ket_qua": (
-            "33 cau hinh duoc ghi day du vao experiment_log.csv (CL-001 den CL-033). "
-            "K-Means k=2 dat Silhouette cao nhat (0.4246), 0% nhieu. "
-            "Bieu do 08 va 09 xuat thanh cong."
+            "33 cấu hình được ghi đầy đủ vào experiment_log.csv (CL-001 đến CL-033). K-Means k=2 đạt Silhouette cao nhất (0.4246), 0% nhiễu. Biểu đồ 08 và 09 xuất thành công."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "02_Thuc_nghiem_phan_cum.ipynb, clustering_model_comparison.csv, Git commit 0409e57",
     },
     {
@@ -151,38 +115,23 @@ records = [
         "Thanh_vien": "Võ Thuận Thiên",
         "Git_Username": "vothuanthien",
         "Ma_Commit": "a3754d7",
-        "Tieu_de_commit": "Bo sung thuc nghiem phan cum RFM",
+        "Tieu_de_commit": "Bổ sung thực nghiệm phân cụm RFM",
         "Files_thay_doi": (
-            "experiment_log.csv (cap nhat 66 dong), "
-            "08_selected_cluster_rfm_profiles.png, 09_clustering_silhouette_comparison.png, "
-            "cluster_interpretation.csv/.md, clustering_model_comparison.csv, "
-            "clustering_preprocessing.csv, customer_clusters_sample.csv, "
-            "selected_model_cluster_profiles.csv, src/run_clustering_experiments.py "
-            "(10 files, 171 insertions)"
+            "experiment_log.csv (cập nhật 66 dòng), 08_selected_cluster_rfm_profiles.png, 09_clustering_silhouette_comparison.png, cluster_interpretation.csv/.md, clustering_model_comparison.csv, clustering_preprocessing.csv, customer_clusters_sample.csv, selected_model_cluster_profiles.csv, src/run_clustering_experiments.py (10 files, 171 insertions)"
         ),
         "Nhiem_vu": (
-            "Chay lai va chinh sua ket qua phan cum: cap nhat ban to hop cau hinh, "
-            "bieu do so sanh va dien giai ho so cum theo trung vi vs trung vi mau."
+            "Chạy lại và chỉnh sửa kết quả phân cụm: cập nhật bảng tổ hợp cấu hình, biểu đồ so sánh và diễn giải hồ sơ cụm theo trung vị vs trung vị mẫu."
         ),
         "Kho_khan_van_de": (
-            "PHAT HIEN MAU THUAN DU LIEU: Khi doi chieu bang selected_model_cluster_profiles.csv "
-            "voi rfm_table.csv toan bo, nhan ra Monetary_sum cua Cum 1 "
-            "(4.908.320 GBP) chi la tren 838 khach trong mau 2000, "
-            "khong dai dien cho tong the 5.878 khach hang. "
-            "Neu bao cao chi dung con so nay de noi ve 'tong doanh thu phan khuc' "
-            "se bi sai ve ban chat - day la thong ke mau, khong phai tong the."
+            "PHÁT HIỆN MÂU THUẪN DỮ LIỆU: Khi đối chiếu bảng selected_model_cluster_profiles.csv với rfm_table.csv toàn bộ, nhận ra Monetary_sum của Cụm 1 (4.908.320 GBP) chỉ là trên 838 khách trong mẫu 2000, không đại diện cho tổng thể 5.878 khách hàng. Nếu báo cáo chỉ dùng con số này để nói về 'tổng doanh thu phân khúc' sẽ bị sai về bản chất - đây là thống kê mẫu, không phải tổng thể."
         ),
         "Giai_phap_khac_phuc": (
-            "Them chu thich ro rang trong cluster_interpretation.md va bao cao: "
-            "Ket qua va ho so chi dai dien cho mau ngau nhien co dinh toi da 2.000 khach hang. "
-            "Can phan tich tren toan bo 5.878 khach hang (EXP-037) truoc khi ket luan ve "
-            "ty le phan khuc va dong gop doanh thu thuc te."
+            "Thêm chú thích rõ ràng trong cluster_interpretation.md và báo cáo: Kết quả và hồ sơ chỉ đại diện cho mẫu ngẫu nhiên cố định tối đa 2.000 khách hàng. Cần phân tích trên toàn bộ 5.878 khách hàng (EXP-037) trước khi kết luận về tỷ lệ phân khúc và đóng góp doanh thu thực tế."
         ),
         "Ket_qua": (
-            "Cap nhat day du 10 bang dau ra va 2 bieu do. "
-            "Ghi chu gioi han mau duoc them vao cluster_interpretation.md."
+            "Cập nhật đầy đủ 10 bảng đầu ra và 2 biểu đồ. Ghi chú giới hạn mẫu được thêm vào cluster_interpretation.md."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "cluster_interpretation.md, selected_model_cluster_profiles.csv, Git commit a3754d7",
     },
     {
@@ -191,32 +140,24 @@ records = [
         "Thanh_vien": "Nguyễn Hoàng Quy",
         "Git_Username": "Haruki107206",
         "Ma_Commit": "1279a70",
-        "Tieu_de_commit": "Sua loi ghi de nhat ky thuc nghiem va bo sung thong tin quan ly lan chay",
+        "Tieu_de_commit": "Sửa lỗi ghi đè nhật ký thực nghiệm và bổ sung thông tin quản lý lần chạy",
         "Files_thay_doi": (
             "src/run_clustering_experiments.py "
             "(1 file, 95 insertions / 9 deletions)"
         ),
         "Nhiem_vu": (
-            "Phat hien va sua loi nghiem trong trong co che luu tru nhat ky thuc nghiem. "
-            "Bo sung truong Run_ID va thong tin quan ly phien chay."
+            "Phát hiện và sửa lỗi nghiêm trọng trong cơ chế lưu trữ nhật ký thực nghiệm. Bổ sung trường Run_ID và thông tin quản lý phiên chạy."
         ),
         "Kho_khan_van_de": (
-            "SU CO NGHIEM TRONG VE DU LIEU: Script cu su dung df.to_csv(path, mode='w') "
-            "khien moi lan chay lai deu GHI DE hoan toan nhat ky, "
-            "xoa sach lich su 33 lan chay truoc. "
-            "Vi pham nguyen tac bat bien cua nhat ky nghien cuu khoa hoc - "
-            "khong the truy nguyen ket qua."
+            "SỰ CỐ NGHIÊM TRỌNG VỀ DỮ LIỆU: Script cũ sử dụng df.to_csv(path, mode='w') khiến mỗi lần chạy lại đều GHI ĐÈ hoàn toàn nhật ký, xóa sạch lịch sử 33 lần chạy trước. Vi phạm nguyên tắc bất biến của nhật ký nghiên cứu khoa học - không thể truy nguyên kết quả."
         ),
         "Giai_phap_khac_phuc": (
-            "Viet lai ham append_experiment_log(): doc log cu -> noi them dong moi -> "
-            "ghi vao file tam .tmp -> thay the nguyen tu (atomic replace). "
-            "Cap Run_ID = timestamp + UUID_8ky_tu de phan biet moi phien chay."
+            "Viết lại hàm append_experiment_log(): đọc log cũ -> nối thêm dòng mới -> ghi vào file tạm .tmp -> thay thế nguyên tử (atomic replace). Cấp Run_ID = timestamp + UUID_8ky_tu để phân biệt mỗi phiên chạy."
         ),
         "Ket_qua": (
-            "Chay lai nhieu lan, nhat ky tich luy dung (khong mat du lieu). "
-            "33 ban ghi CL-001 den CL-033 duoc bao toan."
+            "Chạy lại nhiều lần, nhật ký tích lũy đúng (không mất dữ liệu). 33 bản ghi CL-001 đến CL-033 được bảo toàn."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "src/run_clustering_experiments.py, Git commit 1279a70",
     },
     {
@@ -225,34 +166,23 @@ records = [
         "Thanh_vien": "Nguyễn Hoàng Quy",
         "Git_Username": "Haruki107206",
         "Ma_Commit": "374a588",
-        "Tieu_de_commit": "Them kiem tra chat luong RFM va mau khach hang EXP-034",
+        "Tieu_de_commit": "Thêm kiểm tra chất lượng RFM và mẫu khách hàng EXP-034",
         "Files_thay_doi": (
-            "outputs/tables/exp034_fixed_customer_sample.csv (moi, 2001 dong), "
-            "outputs/tables/rfm_validation_report.csv (moi, 11 dong), "
-            "src/validate_rfm_data.py (moi, 105 dong) "
-            "(3 files, 2117 insertions)"
+            "outputs/tables/exp034_fixed_customer_sample.csv (mới, 2001 dòng), outputs/tables/rfm_validation_report.csv (mới, 11 dòng), src/validate_rfm_data.py (mới, 105 dòng) (3 files, 2117 insertions)"
         ),
         "Nhiem_vu": (
-            "Xay dung module kiem dinh chat luong RFM doc lap (validate_rfm_data.py) "
-            "voi 10 tieu chi nghiem ngat. Khoa danh sach 2.000 CustomerID co dinh cho EXP-034."
+            "Xây dựng module kiểm định chất lượng RFM độc lập (validate_rfm_data.py) với 10 tiêu chí nghiêm ngặt. Khóa danh sách 2.000 CustomerID cố định cho EXP-034."
         ),
         "Kho_khan_van_de": (
-            "PHAT HIEN RUI RO TIEM AN TRONG DU LIEU: Lo ngai rang mot so CustomerID trong rfm_table.csv "
-            "co the bi trung (do merge nhieu sheet Excel khi doc file goc) "
-            "hoac Frequency khong nguyen (do lam tron khi tinh toan), "
-            "dan den ket qua phan cum khong tin cay neu khong kiem tra truoc."
+            "PHÁT HIỆN RỦI RO TIỀM ẨN TRONG DỮ LIỆU: Lo ngại rằng một số CustomerID trong rfm_table.csv có thể bị trùng (do merge nhiều sheet Excel khi đọc file gốc) hoặc Frequency không nguyên (do làm tròn khi tính toán), dẫn đến kết quả phân cụm không tin cậy nếu không kiểm tra trước."
         ),
         "Giai_phap_khac_phuc": (
-            "Viet validate_rfm_data.py kiem tra 10 tieu chi: file ton tai, cot day du, "
-            "CustomerID khong null/khong trung, RFM huu han, khong am, "
-            "Frequency nguyen duong, Monetary duong, Recency >= 0. "
-            "Chay thu va xac nhan: PASS 10/10."
+            "Viết validate_rfm_data.py kiểm tra 10 tiêu chí: file tồn tại, cột đầy đủ, CustomerID không null/không trùng, RFM hữu hạn, không âm, Frequency nguyên dương, Monetary dương, Recency >= 0. Chạy thử và xác nhận: PASS 10/10."
         ),
         "Ket_qua": (
-            "Bao cao kiem dinh PASS 10/10 tieu chi. "
-            "File mau co dinh exp034_fixed_customer_sample.csv san sang cho EXP-034."
+            "Báo cáo kiểm định PASS 10/10 tiêu chí. File mẫu cố định exp034_fixed_customer_sample.csv sẵn sàng cho EXP-034."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "src/validate_rfm_data.py, rfm_validation_report.csv, Git commit 374a588",
     },
     {
@@ -260,29 +190,24 @@ records = [
         "Ngay_Gio": "2026-11-13 14:00",
         "Thanh_vien": "Nguyễn Hoàng Quy",
         "Git_Username": "HoangQuy",
-        "Ma_Commit": "dang tien hanh",
-        "Tieu_de_commit": "Xac nhan mau co dinh EXP-034 va kiem dinh du lieu",
+        "Ma_Commit": "đang tiến hành",
+        "Tieu_de_commit": "Xác nhận mẫu cố định EXP-034 và kiểm định dữ liệu",
         "Files_thay_doi": (
-            "outputs/tables/exp034_fixed_customer_sample.csv (xac nhan, mau tao tu 12/11), "
-            "outputs/tables/rfm_validation_report.csv (ket qua kiem dinh)"
+            "outputs/tables/exp034_fixed_customer_sample.csv (xác nhận, mẫu tạo từ 12/11), outputs/tables/rfm_validation_report.csv (kết quả kiểm định)"
         ),
         "Nhiem_vu": (
-            "Xac nhan va su dung mau co dinh 2.000 khach hang da khoa cho EXP-034; "
-            "chay lai kiem dinh RFM truoc khi phan cum."
+            "Xác nhận và sử dụng mẫu cố định 2.000 khách hàng đã khóa cho EXP-034; chạy lại kiểm định RFM trước khi phân cụm."
         ),
         "Kho_khan_van_de": (
-            "Can dam bao danh sach CustomerID co dinh dung 2.000 khach hang, "
-            "khong trung lap va khop voi bang RFM truoc khi chay EXP-034."
+            "Cần đảm bảo danh sách CustomerID cố định đúng 2.000 khách hàng, không trùng lặp và khớp với bảng RFM trước khi chạy EXP-034."
         ),
         "Giai_phap_khac_phuc": (
-            "Su dung outputs/tables/exp034_fixed_customer_sample.csv da duoc khoa tu 12/11; "
-            "chay src/validate_rfm_data.py va doi chieu bao cao kiem dinh."
+            "Sử dụng outputs/tables/exp034_fixed_customer_sample.csv đã được khóa từ 12/11; chạy src/validate_rfm_data.py và đối chiếu báo cáo kiểm định."
         ),
         "Ket_qua": (
-            "Xac nhan mau EXP-034 co 2.000 CustomerID duy nhat; "
-            "kiem dinh RFM PASS 10/10 tieu chi, san sang cho 5 seed."
+            "Xác nhận mẫu EXP-034 có 2.000 CustomerID duy nhất; kiểm định RFM PASS 10/10 tiêu chí, sẵn sàng cho 5 seed."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": (
             "outputs/tables/exp034_fixed_customer_sample.csv, "
             "outputs/tables/rfm_validation_report.csv, src/validate_rfm_data.py"
@@ -293,37 +218,24 @@ records = [
         "Ngay_Gio": "2026-11-13 15:35",
         "Thanh_vien": "Trần Thiên Hùng",
         "Git_Username": "hung",
-        "Ma_Commit": "dang tien hanh",
-        "Tieu_de_commit": "EXP-034: Kiem tra do on dinh K-Means 5 seed",
+        "Ma_Commit": "đang tiến hành",
+        "Tieu_de_commit": "EXP-034: Kiểm tra độ ổn định K-Means 5 seed",
         "Files_thay_doi": (
-            "src/run_exp034_stability.py (moi), "
-            "outputs/tables/exp034_seed_stability.csv, exp034_pairwise_ari.csv, "
-            "exp034_customer_labels.csv, "
-            "outputs/figures/10_exp034_seed_stability.png"
+            "src/run_exp034_stability.py (mới), outputs/tables/exp034_seed_stability.csv, exp034_pairwise_ari.csv, exp034_customer_labels.csv, outputs/figures/10_exp034_seed_stability.png"
         ),
         "Nhiem_vu": (
-            "Chay EXP-034: K-Means k=2 voi 5 seed (42, 7, 21, 123, 2026) tren mau co dinh 2000 khach. "
-            "Do do on dinh bang ARI. Xu ly hien tuong Label Switching."
+            "Chạy EXP-034: K-Means k=2 với 5 seed (42, 7, 21, 123, 2026) trên mẫu cố định 2000 khách. Đo độ ổn định bằng ARI. Xử lý hiện tượng Label Switching."
         ),
         "Kho_khan_van_de": (
-            "PHAT HIEN CAM BAY TRONG PHAN TICH DU LIEU: Khi so sanh truc tiep raw label "
-            "Cluster 0 giua seed 42 (Monetary median = 411 GBP) va seed 7 (Monetary median = 2919 GBP), "
-            "ket luan sai rang thuat toan bat on dinh. "
-            "Thuc chat la cac tam cum bi dao thu tu ngau nhien (Label Switching) "
-            "do khoi tao centroid khac nhau - khong phai thuat toan sai."
+            "PHÁT HIỆN CẠM BẪY TRONG PHÂN TÍCH DỮ LIỆU: Khi so sánh trực tiếp raw label Cluster 0 giữa seed 42 (Monetary median = 411 GBP) và seed 7 (Monetary median = 2919 GBP), kết luận sai rằng thuật toán bất ổn định. Thực chất là các tâm cụm bị đảo thứ tự ngẫu nhiên (Label Switching) do khởi tạo centroid khác nhau - không phải thuật toán sai."
         ),
         "Giai_phap_khac_phuc": (
-            "(1) Dung Adjusted Rand Index (ARI) do tuong dong khach quan "
-            "giua 2 ket qua phan cum (ARI khong phu thuoc thu tu nhan). "
-            "(2) Viet ham align_labels_by_monetary(): sap xep lai nhan tang dan "
-            "theo Monetary median truoc khi so sanh ho so cum."
+            "(1) Dùng Adjusted Rand Index (ARI) đo tương đồng khách quan giữa 2 kết quả phân cụm (ARI không phụ thuộc thứ tự nhãn). (2) Viết hàm align_labels_by_monetary(): sắp xếp lại nhãn tăng dần theo Monetary median trước khi so sánh hồ sơ cụm."
         ),
         "Ket_qua": (
-            "ARI min = 0.9741 (seed 42 vs seed 7), cac cap khac dat 0.9960-1.000. "
-            "K-Means k=2 xac nhan rat on dinh. "
-            "Bieu do 10_exp034_seed_stability.png da xuat."
+            "ARI min = 0.9741 (seed 42 vs seed 7), các cặp khác đạt 0.9960-1.000. K-Means k=2 xác nhận rất ổn định. Biểu đồ 10_exp034_seed_stability.png đã xuất."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "exp034_seed_stability.csv, exp034_pairwise_ari.csv, 10_exp034_seed_stability.png",
     },
     {
@@ -331,41 +243,32 @@ records = [
         "Ngay_Gio": "2026-11-13 16:08",
         "Thanh_vien": "Võ Thuận Thiên",
         "Git_Username": "vothuanthien",
-        "Ma_Commit": "dang tien hanh",
-        "Tieu_de_commit": "Tong hop so lieu EXP-034 va chuan hoa he thong nhat ky Excel",
+        "Ma_Commit": "đang tiến hành",
+        "Tieu_de_commit": "Tổng hợp số liệu EXP-034 và chuẩn hóa hệ thống nhật ký Excel",
         "Files_thay_doi": (
-            "logs/Daily_Journal.xlsx (moi), "
-            "logs/experiment_log.xlsx (cap nhat 7 sheets), "
-            "docs/Nhat_ky_thuc_nghiem.md (moi)"
+            "logs/Daily_Journal.xlsx (mới), logs/experiment_log.xlsx (cập nhật 7 sheets), docs/Nhat_ky_thuc_nghiem.md (mới)"
         ),
         "Nhiem_vu": (
-            "Tong hop so lieu EXP-034, ve bieu do, lap nhat ky thuc nghiem chinh thuc "
-            "va chuan hoa he thong luu tru sang file Excel da trang tinh."
+            "Tổng hợp số liệu EXP-034, vẽ biểu đồ, lập nhật ký thực nghiệm chính thức và chuẩn hóa hệ thống lưu trữ sang file Excel đa trang tính."
         ),
         "Kho_khan_van_de": (
-            "PHAT HIEN MAU THUAN TRONG XU LY DU LIEU: Silhouette score phai duoc tinh "
-            "tren raw labels (dung ve toan hoc) nhung neu ap dung nham "
-            "ham align_labels_by_monetary() TRUOC khi tinh Silhouette, "
-            "gia tri metric se bi sai do thu tu gan nhan thay doi. "
-            "Chu y: Silhouette chi do chat luong phan cum hinh hoc, khong phu thuoc ten nhan."
+            "PHÁT HIỆN MÂU THUẪN TRONG XỬ LÝ DỮ LIỆU: Silhouette score phải được tính trên raw labels (đúng về toán học) nhưng nếu áp dụng nhầm hàm align_labels_by_monetary() TRƯỚC khi tính Silhouette, giá trị metric sẽ bị sai do thứ tự gán nhãn thay đổi. Chú ý: Silhouette chỉ đo chất lượng phân cụm hình học, không phụ thuộc tên nhãn."
         ),
         "Giai_phap_khac_phuc": (
-            "Giu nguyen viec tinh Silhouette tren raw labels. "
-            "Chi ap dung align_labels_by_monetary() khi can dien giai "
-            "va so sanh ho so cum giua cac seed. "
-            "Ghi chu ro rang su khac biet nay trong nhat ky thuc nghiem."
+            "Giữ nguyên việc tính Silhouette trên raw labels. Chỉ áp dụng align_labels_by_monetary() khi cần diễn giải và so sánh hồ sơ cụm giữa các seed. Ghi chú rõ ràng sự khác biệt này trong nhật ký thực nghiệm."
         ),
         "Ket_qua": (
-            "logs/Daily_Journal.xlsx (10 ban ghi thuc te theo lich su git), "
-            "logs/experiment_log.xlsx (7 sheets, 75 dong), "
-            "docs/Nhat_ky_thuc_nghiem.md hoan chinh."
+            "logs/Daily_Journal.xlsx (10 bản ghi thực tế theo lịch sử git), logs/experiment_log.xlsx (7 sheets, 75 dòng), docs/Nhat_ky_thuc_nghiem.md hoàn chỉnh."
         ),
-        "Trang_thai": "HOAN THANH",
+        "Trang_thai": "HOÀN THÀNH",
         "Minh_chung": "logs/Daily_Journal.xlsx, logs/experiment_log.xlsx, docs/Nhat_ky_thuc_nghiem.md",
     },
 ]
 
 df = pd.DataFrame(records)
+
+# Vietnamese display labels; retain stable record keys for processing.
+headers = {'STT': 'STT', 'Ngay_Gio': 'Ngày giờ', 'Thanh_vien': 'Thành viên', 'Git_Username': 'Tên người dùng Git', 'Ma_Commit': 'Mã commit', 'Tieu_de_commit': 'Tiêu đề commit', 'Files_thay_doi': 'File thay đổi', 'Nhiem_vu': 'Nhiệm vụ', 'Kho_khan_van_de': 'Khó khăn, vấn đề', 'Giai_phap_khac_phuc': 'Giải pháp khắc phục', 'Ket_qua': 'Kết quả', 'Trang_thai': 'Trạng thái', 'Minh_chung': 'Minh chứng'}
 
 # ---- Build Excel with a plain white background and black text ----
 wb = openpyxl.Workbook()
@@ -379,7 +282,7 @@ left_align   = Alignment(horizontal="left",   vertical="top", wrap_text=True)
 
 # Header row
 for c_idx, col in enumerate(df.columns, 1):
-    cell = ws.cell(row=1, column=c_idx, value=col)
+    cell = ws.cell(row=1, column=c_idx, value=headers[col])
     cell.font      = plain_font
     cell.fill      = white_fill
     cell.alignment = center_align
@@ -423,7 +326,7 @@ print(f"Da tao Daily_Journal.xlsx: {journal_file}")
 # Sync into experiment_log.xlsx
 if log_xlsx.exists():
     with pd.ExcelWriter(log_xlsx, engine="openpyxl", mode="a", if_sheet_exists="replace") as writer:
-        df.to_excel(writer, sheet_name="Daily_Journal", index=False)
+        df.rename(columns=headers).to_excel(writer, sheet_name="Daily_Journal", index=False)
     synced_wb = openpyxl.load_workbook(log_xlsx)
     synced_ws = synced_wb["Daily_Journal"]
     for row in synced_ws.iter_rows():
