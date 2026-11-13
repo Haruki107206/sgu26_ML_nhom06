@@ -1,5 +1,5 @@
 ﻿Check,Status,Severity,Observed,Expected,Details
-rfm_file_exists,PASS,error,C:\Users\HoangQuy\Documents\Codex\2026-11-12\https-github-com-haruki107206-sgu26-ml-2\work\repo\Online_Retail_II_GiaiDoan1\outputs\tables\rfm_table.csv,file exists,
+rfm_file_exists,PASS,error,D:\sgu26_ML_nhom06\Online_Retail_II_GiaiDoan1\outputs\tables\rfm_table.csv,file exists,
 required_columns,PASS,error,"CustomerID, Recency, Frequency, Monetary, TransactionLines, LastPurchaseDate","CustomerID, Recency, Frequency, Monetary",
 customer_id_not_missing,PASS,error,0,0 missing IDs,
 customer_id_unique,PASS,error,0,0 duplicate ID rows,

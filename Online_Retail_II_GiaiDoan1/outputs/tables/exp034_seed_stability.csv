@@ -1,0 +1,6 @@
+﻿Experiment_ID,Seed,k,Silhouette,Inertia,Raw_Label_Switched,Cluster_0_Customers,Cluster_1_Customers,Cluster_0_Recency_Median,Cluster_0_Frequency_Median,Cluster_0_Monetary_Median,Cluster_0_Revenue_GBP,Cluster_1_Recency_Median,Cluster_1_Frequency_Median,Cluster_1_Monetary_Median,Cluster_1_Revenue_GBP
+EXP034_seed_42,42,2,0.297894,2855.74,True,1160,840,306.0,2.0,411.75,714242.27,24.0,8.0,2874.16,4910713.8
+EXP034_seed_7,7,2,0.300278,2855.75,False,1173,827,300.0,2.0,415.87,729966.01,23.0,8.0,2919.62,4894990.06
+EXP034_seed_21,21,2,0.297894,2855.77,False,1160,840,306.0,2.0,411.75,714242.27,24.0,8.0,2874.16,4910713.8
+EXP034_seed_123,123,2,0.298704,2855.73,False,1162,838,306.0,2.0,412.66499999999996,716635.46,24.0,8.0,2880.55,4908320.61
+EXP034_seed_2026,2026,2,0.298704,2855.72,True,1162,838,306.0,2.0,412.66499999999996,716635.46,24.0,8.0,2880.55,4908320.61

@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TABLES = ROOT / "outputs" / "tables"
 FIGURES = ROOT / "outputs" / "figures"
 LOG = ROOT / "logs" / "experiment_log.csv"
+LOG_XLSX = ROOT / "logs" / "experiment_log.xlsx"
 RFM_FILE = TABLES / "rfm_table.csv"
 FEATURES = ["Recency", "Frequency", "Monetary"]
 SEED = 42
@@ -69,6 +70,14 @@ def append_experiment_log(new_rows: pd.DataFrame, log_path: Path) -> None:
     finally:
         if temp_path.exists():
             temp_path.unlink()
+
+    # Also update Excel experiment log workbook
+    try:
+        xlsx_path = log_path.with_suffix(".xlsx")
+        with pd.ExcelWriter(xlsx_path, engine="openpyxl") as writer:
+            combined.to_excel(writer, sheet_name="Experiment_Log", index=False)
+    except Exception as exc:
+        print(f"Lưu ý: Không thể xuất file Excel {log_path.with_suffix('.xlsx')}: {exc}")
 
 
 def main() -> None:
