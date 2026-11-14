@@ -178,3 +178,17 @@ Nhóm ban đầu kết luận nhầm: *"K-Means không ổn định, thuật to�
 
 ---
 
+
+
+## EXP-034 — Độ ổn định theo seed: ARI, Silhouette và Inertia
+
+Thí nghiệm giữ nguyên mẫu khách hàng 2.000 dòng, ba biến RFM, log1p + StandardScaler, K-Means k=2, `n_init=20`; chỉ đổi seed (42, 7, 21, 123, 2026). So sánh ARI trên nhãn của cùng khách hàng, xử lý việc đổi tên nhãn cụm (label switching) theo thứ tự trung vị Monetary.
+
+- **ARI theo cặp:** 0.974137–0.995999. ARI gần 1 cho thấy hai lần chạy tạo cách phân nhóm gần như tương đồng; đây không phải accuracy.
+- **Silhouette:** 0.297894–0.300278, biên độ 0.002384 (trung bình 0.298695).
+- **Inertia:** 2855.72–2855.77, biên độ 0.05, tương đương 0.00175% so với trung bình.
+- **Kích thước cụm:** seed 7 là 1.173/827; các seed còn lại nằm trong khoảng 1.160–1.162 và 838–840.
+
+Seed khác nhau làm thay đổi centroid khởi tạo nên K-Means có thể hội tụ vào nghiệm cục bộ hơi khác. Silhouette biến động nhẹ vì độ tách biệt của cùng 1.000 điểm đánh giá thay đổi theo ranh giới cụm. Inertia là tổng bình phương khoảng cách đến centroid trên toàn mẫu huấn luyện; biên độ rất nhỏ cho thấy các nghiệm có độ khớp gần nhau. Chỉ so sánh Inertia khi cùng dữ liệu, đặc trưng, scaling và thuật toán.
+
+**Nhận xét:** trên mẫu và pipeline cố định này, phân cụm k=2 ổn định cao qua năm seed. Kết luận chưa khái quát ra mẫu khác. Số liệu chi tiết tại `outputs/tables/exp034_seed_stability.csv` và `exp034_pairwise_ari.csv`; diễn giải đã được thêm vào sheet `EXP034_Interpretation` trong `logs/experiment_log.xlsx`.
