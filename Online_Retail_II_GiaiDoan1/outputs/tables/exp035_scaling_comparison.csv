@@ -1,0 +1,5 @@
+﻿experiment_id,scaler,algorithm,k,init,n_init,seed,sample_n,features,transform,silhouette,davies_bouldin,calinski_harabasz,inertia,runtime_seconds,ari_vs_other_scaler_same_k,cluster_sizes,status,error
+EXP-035,StandardScaler,KMeans,2,k-means++,20,42,2000,"Recency,Frequency,Monetary",log1p,0.4433367040645142,0.8575571011052996,2199.889461384104,2855.7244766108374,2.0992292000000816,0.8684375833082634,"{""0"": 1162, ""1"": 838}",valid,
+EXP-035,RobustScaler,KMeans,2,k-means++,20,42,2000,"Recency,Frequency,Monetary",log1p,0.4457489878196029,0.8430372465773351,2253.8645759284013,1144.0827578647438,0.05471030000035171,0.8684375833082634,"{""0"": 1190, ""1"": 810}",valid,
+EXP-035,StandardScaler,KMeans,3,k-means++,20,42,2000,"Recency,Frequency,Monetary",log1p,0.3570226643248928,1.015329864778246,1871.701863337424,2087.3096336972485,0.08505050000030678,0.8427986017512668,"{""0"": 828, ""1"": 417, ""2"": 755}",valid,
+EXP-035,RobustScaler,KMeans,3,k-means++,20,42,2000,"Recency,Frequency,Monetary",log1p,0.35678764833416404,0.9893716783004205,1955.0974383421792,823.0755225384737,0.0623184000000947,0.8427986017512668,"{""0"": 797, ""1"": 425, ""2"": 778}",valid,

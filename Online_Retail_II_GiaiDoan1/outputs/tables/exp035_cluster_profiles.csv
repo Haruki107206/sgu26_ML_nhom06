@@ -1,0 +1,11 @@
+﻿scaler,k,cluster,customers,Recency_median,Frequency_median,Monetary_median,Monetary_sum
+StandardScaler,2,0,1162,306.0,2.0,412.66499999999996,716635.463
+StandardScaler,2,1,838,24.0,8.0,2880.55,4908320.608
+RobustScaler,2,0,1190,282.0,2.0,417.76,671072.213
+RobustScaler,2,1,810,24.0,8.5,3037.605,4953883.858
+StandardScaler,3,0,828,391.0,1.0,316.44000000000005,338382.072
+StandardScaler,3,1,417,17.0,13.0,5609.74,4048056.474
+StandardScaler,3,2,755,51.0,4.0,1232.79,1238517.525
+RobustScaler,3,0,797,387.0,1.0,305.99,282885.551
+RobustScaler,3,1,425,18.0,13.0,5609.74,4155337.574
+RobustScaler,3,2,778,58.5,4.0,1226.355,1186732.946

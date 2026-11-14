@@ -1,0 +1,7 @@
+﻿experiment_id,scaler,feature,mean_after_scaling,variance_after_scaling,std_after_scaling,sample_n,transform_before_scaling
+EXP-035,StandardScaler,Recency,-5.737632591262809e-16,1.0,1.0,2000,log1p
+EXP-035,StandardScaler,Frequency,4.4142467459096224e-16,0.9999999999999998,0.9999999999999999,2000,log1p
+EXP-035,StandardScaler,Monetary,-7.815970093361102e-16,1.0,1.0,2000,log1p
+EXP-035,RobustScaler,Recency,-0.034184680210527084,0.33097796532084817,0.5753068444933088,2000,log1p
+EXP-035,RobustScaler,Frequency,0.1319144671498332,0.35154413650974947,0.5929115756246874,2000,log1p
+EXP-035,RobustScaler,Monetary,0.024107523076324182,0.5348164742693966,0.7313114755488229,2000,log1p
