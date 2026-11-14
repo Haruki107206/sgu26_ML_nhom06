@@ -192,3 +192,41 @@ Thí nghiệm giữ nguyên mẫu khách hàng 2.000 dòng, ba biến RFM, log1p
 Seed khác nhau làm thay đổi centroid khởi tạo nên K-Means có thể hội tụ vào nghiệm cục bộ hơi khác. Silhouette biến động nhẹ vì độ tách biệt của cùng 1.000 điểm đánh giá thay đổi theo ranh giới cụm. Inertia là tổng bình phương khoảng cách đến centroid trên toàn mẫu huấn luyện; biên độ rất nhỏ cho thấy các nghiệm có độ khớp gần nhau. Chỉ so sánh Inertia khi cùng dữ liệu, đặc trưng, scaling và thuật toán.
 
 **Nhận xét:** trên mẫu và pipeline cố định này, phân cụm k=2 ổn định cao qua năm seed. Kết luận chưa khái quát ra mẫu khác. Số liệu chi tiết tại `outputs/tables/exp034_seed_stability.csv` và `exp034_pairwise_ari.csv`; diễn giải đã được thêm vào sheet `EXP034_Interpretation` trong `logs/experiment_log.xlsx`.
+
+
+## TV3 kiểm tra và diễn giải EXP-035
+
+Ngày thực hiện thực tế: 15/11/2026. Đầu việc bổ sung theo kế hoạch 14/11. Võ Thuận Thiên thực hiện với hỗ trợ Codex trên kết quả đã lưu tại commit f82bc3e. Không huấn luyện lại mô hình, không tạo bản ghi chạy mô hình mới, chưa ghi nhận nhóm đã chốt scaler.
+
+### Điều kiện và kết quả
+Cùng danh sách 2.000 khách, ba biến RFM, log1p, K-Means k=2 hoặc k=3, n_init=20, seed 42. EXP-035 chấm chỉ số trên toàn bộ mẫu 2.000 khách.
+
+| k | Scaler | Silhouette | Davies–Bouldin | Calinski–Harabasz |
+|---|---|---:|---:|---:|
+| 2 | StandardScaler | 0,443337 | 0,857557 | 2199,89 |
+| 2 | RobustScaler | 0,445749 | 0,843037 | 2253,86 |
+| 3 | StandardScaler | 0,357023 | 1,015330 | 1871,70 |
+| 3 | RobustScaler | 0,356788 | 0,989372 | 1955,10 |
+
+Với k=2, RobustScaler nhỉnh hơn theo cả ba chỉ số; mức tăng Silhouette khoảng 0,002412. Với k=3, StandardScaler nhỉnh hơn Silhouette khoảng 0,000235, trong khi RobustScaler có Davies–Bouldin thấp hơn và Calinski–Harabasz cao hơn. Các chỉ số đang đánh giá những không gian chuẩn hóa khác nhau nên cần kết hợp ý nghĩa và quy mô cụm; chưa đủ căn cứ tuyên bố một scaler luôn tốt hơn.
+
+### Phân tích hồ sơ khách hàng
+Với k=2, nhóm có Monetary trung vị cao hơn gồm 838 khách với StandardScaler (41,9% mẫu), so với 810 khách với RobustScaler (40,5%). Monetary trung vị tăng từ 2.880,55 lên 3.037,61 GBP; Recency trung vị giữ 24 ngày; Frequency trung vị tăng từ 8 lên 8,5 hóa đơn. Nhóm cao hơn nhỏ hơn nhưng có mức mua điển hình cao hơn. Đây là thay đổi ranh giới nhóm trong mẫu, chưa chứng minh tăng doanh thu hoặc xác định đúng khách VIP. Chênh lệch quy mô 28 khách không phải số khách chuyển nhóm, vì có thể chuyển theo cả hai chiều. ARI giữa hai scaler cùng k lần lượt khoảng 0,8684 (k=2) và 0,8428 (k=3), cho thấy các cách chia tương đồng nhưng không giống hệt.
+
+Với k=3, cả hai scaler đều có nhóm mua ít và lâu chưa quay lại, nhóm mua gần đây với mức chi tiêu cao và nhóm ở giữa. StandardScaler có quy mô tương ứng 828/417/755; RobustScaler là 797/425/778. Nhóm chi tiêu cao có Monetary trung vị cùng 5.609,74 GBP và Frequency trung vị cùng 13 hóa đơn. Những tên gọi này là mô tả tương đối trong mẫu, không phải nhãn chuẩn.
+
+### Kiểm tra phương sai và biểu đồ
+StandardScaler có phương sai ba biến gần 1. RobustScaler có phương sai Recency/Frequency/Monetary khoảng 0,3310/0,3515/0,5348. Đây phù hợp với cách dùng trung vị và IQR, không phải lỗi vì phương sai khác 1. Trọng số tương đối giữa các biến trong khoảng cách Euclid có thể thay đổi.
+
+Boxplot hiện có dùng giới hạn trục riêng cho từng ô và showfliers=False. Vì vậy không so chiều cao hộp bằng mắt khi bỏ qua thang trục; các điểm ngoài râu chỉ bị ẩn khi hiển thị, không bị loại khỏi dữ liệu. Trục là giá trị chuẩn hóa, không còn đơn vị ngày/hóa đơn/GBP. Không sửa hoặc tạo lại hình trong công việc tổng hợp này.
+
+Không dùng Inertia để so trực tiếp hai scaler vì thang đo khác nhau. Không so trực tiếp Silhouette EXP-035 với EXP-034 dùng tập con 1.000 khách. Thời gian chạy một lượt chưa đủ để kết luận scaler nào nhanh hơn.
+
+### Minh chứng
+- [Kết quả bốn cấu hình](../outputs/tables/exp035_scaling_comparison.csv)
+- [Phương sai sau chuẩn hóa](../outputs/tables/exp035_scaling_diagnostics.csv)
+- [Hồ sơ RFM từng cụm](../outputs/tables/exp035_cluster_profiles.csv)
+- [Boxplot hiện có](../outputs/figures/10_exp035_scaler_feature_distributions.png)
+- [Script và giao thức](../src/run_exp035_scalers.py)
+
+Trạng thái: hoàn thành tổng hợp và diễn giải TV3; lựa chọn scaler cuối chờ nhóm thống nhất, kết hợp đánh giá EXP-036.
