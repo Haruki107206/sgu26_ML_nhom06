@@ -164,7 +164,7 @@ Nhóm ban đầu kết luận nhầm: *"K-Means không ổn định, thuật to�
 
 ---
 
-### 13/11/2026 – 16:08 | Chuẩn hóa hệ thống nhật ký sang file Excel
+### 13/11/2026  Chuẩn hóa hệ thống nhật ký sang file Excel
 **Thực hiện:** Phân tích & Quản lý
 
 **Hành động:**
@@ -192,3 +192,9 @@ Thí nghiệm giữ nguyên mẫu khách hàng 2.000 dòng, ba biến RFM, log1p
 Seed khác nhau làm thay đổi centroid khởi tạo nên K-Means có thể hội tụ vào nghiệm cục bộ hơi khác. Silhouette biến động nhẹ vì độ tách biệt của cùng 1.000 điểm đánh giá thay đổi theo ranh giới cụm. Inertia là tổng bình phương khoảng cách đến centroid trên toàn mẫu huấn luyện; biên độ rất nhỏ cho thấy các nghiệm có độ khớp gần nhau. Chỉ so sánh Inertia khi cùng dữ liệu, đặc trưng, scaling và thuật toán.
 
 **Nhận xét:** trên mẫu và pipeline cố định này, phân cụm k=2 ổn định cao qua năm seed. Kết luận chưa khái quát ra mẫu khác. Số liệu chi tiết tại `outputs/tables/exp034_seed_stability.csv` và `exp034_pairwise_ari.csv`; diễn giải đã được thêm vào sheet `EXP034_Interpretation` trong `logs/experiment_log.xlsx`.
+
+## EXP-035 ? Ki?m tra ?i?u ki?n so s?nh scaler (TV2: Tr?n Thi?n H?ng)
+
+Tr??c khi so s?nh StandardScaler v?i RobustScaler, ?? ??i chi?u c?u h?nh ??u ra th?c nghi?m. C? hai scaler d?ng c?ng danh s?ch 2.000 `CustomerID` trong `outputs/tables/exp034_fixed_customer_sample.csv`, c?ng bi?n RFM sau `log1p`, c?ng K-Means (`k=2` v? `k=3` ???c ??nh gi? ri?ng), `n_init=20`, `random_state=42`. Do ??, trong t?ng c?p so s?nh ch? scaler thay ??i. B?ng ki?m tra: `outputs/tables/exp035_comparison_conditions.csv` (PASS cho k=2 v? k=3).
+
+??y l? so s?nh c?ng b?ng theo ?i?u ki?n ?? giao; kh?ng tr?n k?t qu? gi?a hai gi? tr? k. C?c ch? s? k?t qu? chi ti?t c? t?i `outputs/tables/exp035_scaling_comparison.csv`.
