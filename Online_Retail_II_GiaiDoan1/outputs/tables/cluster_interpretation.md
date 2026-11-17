@@ -1,14 +1,15 @@
 # Diễn giải cụm từ mẫu RFM
 
-Mô hình được chọn theo silhouette: **KMeans_tuned** (n_clusters=2; init=k-means++; n_init=20; random_state=42).
-Silhouette trên tập đánh giá cố định: **0.4246**; 2 cụm; noise DBSCAN 0.00%.
-Trung vị toàn mẫu: Recency=92.00 ngày, Frequency=3.00 hóa đơn, Monetary=915.03 GBP.
+Mô hình được chọn: **K-Means + log1p + RobustScaler + k=2**, `n_init=20`, `random_state=42`.
+Silhouette=0.4303; Davies–Bouldin=0.8751; 
+Calinski–Harabasz=1058.49; noise=0%.
+Nhãn cụm được tạo lại bằng RobustScaler; phần diễn giải dưới đây dùng trung vị của cùng mẫu 2.000 khách.
+Trung vị toàn mẫu: Recency=92.00 ngày, 
+Frequency=3.00 hóa đơn, Monetary=915.03 GBP.
 
-Các mô tả dưới đây so sánh trung vị của từng cụm với trung vị mẫu chung; đây là diễn giải mô tả, không phải nhãn chân lý hay bằng chứng nhân quả.
-
-- **Cụm 0** (1,162 khách hàng trong mẫu): Recency 306.00 ngày (cao hơn trung vị mẫu), Frequency 2.00 hóa đơn (thấp hơn trung vị mẫu), Monetary 412.67 GBP (thấp hơn trung vị mẫu); doanh thu gộp trong cụm 716635.46 GBP.
-- **Cụm 1** (838 khách hàng trong mẫu): Recency 24.00 ngày (thấp hơn trung vị mẫu), Frequency 8.00 hóa đơn (cao hơn trung vị mẫu), Monetary 2880.55 GBP (cao hơn trung vị mẫu); doanh thu gộp trong cụm 4908320.61 GBP.
+- **Cụm 0** (1,190 khách): Recency trung vị 282.00 ngày (cao hơn trung vị mẫu), Frequency 2.00 (thấp hơn trung vị mẫu), Monetary 417.76 GBP (thấp hơn trung vị mẫu); tổng Monetary 671072.21 GBP.
+- **Cụm 1** (810 khách): Recency trung vị 24.00 ngày (thấp hơn trung vị mẫu), Frequency 8.50 (cao hơn trung vị mẫu), Monetary 3037.61 GBP (cao hơn trung vị mẫu); tổng Monetary 4953883.86 GBP.
 
 ## Giới hạn
 
-Kết quả và hồ sơ chỉ đại diện cho mẫu ngẫu nhiên cố định tối đa 2.000 khách hàng. Cần kiểm tra độ ổn định trên nhiều seed/bootstrap và xem ý nghĩa kinh doanh trước khi dùng làm kết luận cuối.
+Đây là mô tả trên mẫu cố định, không phải nhãn chuẩn hay bằng chứng nhân quả; cần kiểm tra ý nghĩa kinh doanh và xác nhận thêm trên toàn bộ dữ liệu.

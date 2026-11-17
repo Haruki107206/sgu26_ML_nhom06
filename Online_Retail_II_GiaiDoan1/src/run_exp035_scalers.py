@@ -100,6 +100,7 @@ def main() -> None:
 
     # Biến đổi log1p
     log_features = np.log1p(sample[FEATURES].astype(float))
+    eval_n = min(1000, len(sample))
 
     # Kiểm tra IQR sau log1p (ngăn RobustScaler chia 0)
     print("\n[Kiểm tra IQR sau log1p]")
@@ -170,9 +171,11 @@ def main() -> None:
                 "error": "",
             }
             try:
-                row["silhouette"] = float(silhouette_score(scaled_data, labels))
-                row["davies_bouldin"] = float(davies_bouldin_score(scaled_data, labels))
-                row["calinski_harabasz"] = float(calinski_harabasz_score(scaled_data, labels))
+                row["silhouette"] = float(silhouette_score(scaled_data[:eval_n], labels[:eval_n]))
+                row["davies_bouldin"] = float(davies_bouldin_score(scaled_data[:eval_n], labels[:eval_n]))
+                row["calinski_harabasz"] = float(calinski_harabasz_score(scaled_data[:eval_n], labels[:eval_n]))
+                row["evaluation_sample_n"] = eval_n
+                row["metric_note"] = "Metric trên cùng phần đầu 1.000 CustomerID của sample; fit K-Means và inertia trên toàn bộ sample cố định."
             except ValueError as exc:
                 row["status"] = "khong_hop_le_metric"
                 row["error"] = str(exc)
@@ -241,6 +244,8 @@ def main() -> None:
 
     # Ghi vào experiment_log.csv
     rfm_rows_count = len(rfm)
+    rfm_rows_before_dropna = len(rfm)
+    rfm_rows_after_dropna = int(rfm.dropna(subset=FEATURES).shape[0])
     log_rows = []
     for row in metrics_rows:
         score_text = (
@@ -255,17 +260,17 @@ def main() -> None:
             "Date": run_started_at.date().isoformat(),
             "Research_Question": "StandardScaler và RobustScaler làm thay đổi chất lượng/hình học cụm RFM như thế nào?",
             "Dataset_Version": "Online Retail II UCI; outputs/tables/rfm_table.csv",
-            "RFM_Rows_Before_DropNA": rfm_rows_count,
-            "RFM_Rows_After_DropNA": len(sample),
+            "RFM_Rows_Before_DropNA": rfm_rows_before_dropna,
+            "RFM_Rows_After_DropNA": rfm_rows_after_dropna,
             "Unique_Customers_After_RFM_Cleaning": int(rfm["CustomerID"].nunique()),
             "Sample_Rows_For_Clustering": len(sample),
             "Unique_Customers_Sampled": int(sample["CustomerID"].nunique()),
-            "Evaluation_Rows_For_Silhouette": len(sample),
-            "Unique_Customers_Evaluated": int(sample["CustomerID"].nunique()),
+            "Evaluation_Rows_For_Silhouette": eval_n,
+            "Unique_Customers_Evaluated": int(sample.iloc[:eval_n]["CustomerID"].nunique()),
             "Feature_Set": ", ".join(FEATURES),
             "Algorithm": "KMeans",
             "Hyperparameters": f"n_clusters={row['k']}; init=k-means++; n_init={N_INIT}; random_state={SEED}",
-            "Validation_Strategy": "Cùng mẫu cố định 2.000 CustomerID; cùng k; cùng seed=42; chỉ thay đổi scaler",
+            "Validation_Strategy": f"Cùng {len(sample)} CustomerID fit và {eval_n} CustomerID đánh giá; so sánh riêng từng k={row['k']}; cùng n_init={N_INIT}, seed={SEED}; chỉ scaler thay đổi",
             "Scaling": f"log1p + {row['scaler']}",
             "Metric_Name": "Silhouette; Davies-Bouldin; Calinski-Harabasz; inertia",
             "Metric_Value": row["silhouette"],

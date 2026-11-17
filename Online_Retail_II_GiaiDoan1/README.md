@@ -40,9 +40,13 @@
 - `outputs/tables/selected_clustering_model.csv`: quy tắc và cấu hình được chọn.
 - `outputs/tables/customer_clusters_sample.csv`: nhãn cụm trên mẫu đánh giá cố định.
 - `outputs/tables/selected_model_cluster_profiles.csv`: hồ sơ RFM theo cụm.
+- `outputs/tables/exp036_all_algorithms_multi_metrics.csv`: Silhouette, Davies–Bouldin, Calinski–Harabasz và noise của các thuật toán trong EXP-036.
+- `outputs/tables/model_decision_exp034_exp036.csv`: bảng quyết định và đánh đổi giữa các ứng viên EXP-034–EXP-036.
+- `outputs/tables/selected_model_customer_labels.csv`: nhãn khách hàng theo cấu hình chốt.
 - `outputs/tables/cluster_interpretation.csv` và `.md`: so sánh trung vị từng cụm với trung vị mẫu để hỗ trợ diễn giải.
 - `outputs/figures/08_selected_cluster_rfm_profiles.png`, `09_clustering_silhouette_comparison.png`.
-- `logs/experiment_log.csv`: nhật ký cấu hình và kết quả các lần chạy.
+- `logs/experiment_log.xlsx`: nhật ký thực nghiệm dạng workbook; `logs/experiment_log.csv` là bản ghi chi tiết dạng CSV.
+- `logs/Daily_Journal.xlsx`: nhật ký công việc hằng ngày.
 
 
 ## Nguồn dữ liệu
@@ -74,4 +78,12 @@ Lệnh riêng này cần `outputs/tables/rfm_table.csv`, do đó phải chạy N
 
 ## Thực nghiệm phân cụm hiện có
 
-Lần chạy đã lưu đánh giá 33 cấu hình trên mẫu cố định 2.000 khách hàng (seed 42), với Silhouette tính trên cùng 1.000 khách hàng. Theo quy tắc lựa chọn trong Notebook 02, cấu hình đứng đầu là K-Means `k=2`, Silhouette `0.4246`, tỷ lệ nhiễu 0%. Hai cụm có lần lượt 1.162 và 838 khách hàng trong mẫu. Đây là kết quả khám phá; cần kiểm tra độ ổn định qua nhiều seed/bootstrap trước khi kết luận mô hình cuối.
+EXP-036 đánh giá K-Means, Ward và lưới DBSCAN trên cùng mẫu fit cố định tối đa 2.000 khách hàng. Silhouette, Davies–Bouldin và Calinski–Harabasz tính trên cùng 1.000 khách đánh giá; DBSCAN loại noise khỏi các metric nhưng báo riêng số/tỷ lệ noise trên sample fit. Kết hợp EXP-035 (so sánh scaler cùng sample/k/seed) và kiểm tra độ ổn định 5 seed, cấu hình hiện được chọn là K-Means `k=2`, `log1p` + `RobustScaler`, `n_init=20`, `random_state=42`. Các giá trị metric cuối được lưu ở `outputs/tables/selected_clustering_model.csv`; đây là đánh giá nội tại trên mẫu, chưa phải đánh giá có nhãn chuẩn hay xác nhận trên toàn bộ khách hàng. Xem `docs/Danh_gia_mo_hinh_EXP034_EXP036.md` và `outputs/tables/model_decision_exp034_exp036.csv` để biết quy trình, đánh đổi và giới hạn.
+
+Để tính lại các metric đa thuật toán và cập nhật cấu hình/nhãn được chọn sau khi đã chạy Notebook 01, dùng:
+
+```powershell
+python src/run_clustering_experiments.py
+```
+
+Script chạy lượt so sánh K-Means/Ward/DBSCAN, làm mới lượt K-Means đa chỉ số của EXP-036, gọi `src/complete_model_evaluation.py` để tái lập bảng quyết định/kiểm tra độ ổn định RobustScaler/cập nhật hồ sơ cụm cuối, rồi đồng bộ hai workbook nhật ký. Các sheet sẵn có trong workbook được giữ lại khi ghi log.

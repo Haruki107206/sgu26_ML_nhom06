@@ -74,7 +74,11 @@ def append_experiment_log(new_rows: pd.DataFrame, log_path: Path) -> None:
     # Also update Excel experiment log workbook
     try:
         xlsx_path = log_path.with_suffix(".xlsx")
-        with pd.ExcelWriter(xlsx_path, engine="openpyxl") as writer:
+        writer_options = (
+            {"mode": "a", "if_sheet_exists": "replace"}
+            if xlsx_path.exists() else {"mode": "w"}
+        )
+        with pd.ExcelWriter(xlsx_path, engine="openpyxl", **writer_options) as writer:
             combined.to_excel(writer, sheet_name="Experiment_Log", index=False)
     except Exception as exc:
         print(f"Lưu ý: Không thể xuất file Excel {log_path.with_suffix('.xlsx')}: {exc}")
@@ -337,3 +341,18 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    # Refresh the controlled scaler comparison before final model selection.
+    from run_exp035_scalers import main as run_exp035_scaler_comparison
+    run_exp035_scaler_comparison()
+    # Refresh the dedicated EXP-036 K-Means multi-metric sweep before the
+    # combined decision step consumes its CSV results.
+    from run_exp036_multi_metrics import main as run_exp036_kmeans_metrics
+    run_exp036_kmeans_metrics()
+    # Finalize the choice using the EXP-035 scaler comparison and refresh the
+    # selected labels/profiles after the StandardScaler algorithm sweep above.
+    from complete_model_evaluation import main as finalize_model_evaluation
+    finalize_model_evaluation()
+    # The main sweep rebuilds the base experiment workbook; restore the detailed
+    # evaluation sheets and synchronize the separate daily journal afterwards.
+    from write_model_evaluation_journals import main as update_evaluation_journals
+    update_evaluation_journals()
