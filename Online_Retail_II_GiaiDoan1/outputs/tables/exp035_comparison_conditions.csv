@@ -1,0 +1,3 @@
+﻿experiment_id,scaler_a,scaler_b,sample_file,sample_n,same_sample_verified,k,same_k_verified,seed_a,seed_b,same_seed_verified,n_init,features,transform,only_intended_difference,status
+EXP-035,StandardScaler,RobustScaler,exp034_fixed_customer_sample.csv,2000,YES (same immutable CustomerID list),2,YES,42,42,YES,20,"Recency,Frequency,Monetary",log1p,scaler,PASS
+EXP-035,StandardScaler,RobustScaler,exp034_fixed_customer_sample.csv,2000,YES (same immutable CustomerID list),3,YES,42,42,YES,20,"Recency,Frequency,Monetary",log1p,scaler,PASS

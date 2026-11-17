@@ -1,0 +1,4 @@
+﻿experiment_id,feature,mean_after_scaling,var_after_scaling,std_after_scaling,sample_n
+EXP-036,Recency,-5.737632591262809e-16,1.0,1.0,2000
+EXP-036,Frequency,4.4142467459096224e-16,0.9999999999999998,0.9999999999999999,2000
+EXP-036,Monetary,-7.815970093361102e-16,1.0,1.0,2000

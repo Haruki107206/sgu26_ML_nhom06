@@ -1,4 +1,4 @@
-﻿scaler,k,cluster,customers,Recency_median,Frequency_median,Monetary_median,Monetary_sum
+﻿scaler,k,cluster,so_khach,Recency_trung_vi,Frequency_trung_vi,Monetary_trung_vi,Monetary_tong
 StandardScaler,2,0,1162,306.0,2.0,412.66499999999996,716635.463
 StandardScaler,2,1,838,24.0,8.0,2880.55,4908320.608
 RobustScaler,2,0,1190,282.0,2.0,417.76,671072.213
