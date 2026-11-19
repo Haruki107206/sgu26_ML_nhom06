@@ -1,0 +1,27 @@
+{
+  "experiment": "EXP-037",
+  "source": "rfm_table.csv",
+  "customers": 5878,
+  "features": [
+    "Recency",
+    "Frequency",
+    "Monetary"
+  ],
+  "pipeline": [
+    "log1p",
+    "RobustScaler",
+    "KMeans"
+  ],
+  "k": 2,
+  "init": "k-means++",
+  "n_init": 20,
+  "random_state": 42,
+  "pca_variance_ratio": [
+    0.782986998629841,
+    0.16771205433102734
+  ],
+  "label_map": {
+    "0": 0,
+    "1": 1
+  }
+}

@@ -198,3 +198,11 @@ Seed khác nhau làm thay đổi centroid khởi tạo nên K-Means có thể h�
 Tr??c khi so s?nh StandardScaler v?i RobustScaler, ?? ??i chi?u c?u h?nh ??u ra th?c nghi?m. C? hai scaler d?ng c?ng danh s?ch 2.000 `CustomerID` trong `outputs/tables/exp034_fixed_customer_sample.csv`, c?ng bi?n RFM sau `log1p`, c?ng K-Means (`k=2` v? `k=3` ???c ??nh gi? ri?ng), `n_init=20`, `random_state=42`. Do ??, trong t?ng c?p so s?nh ch? scaler thay ??i. B?ng ki?m tra: `outputs/tables/exp035_comparison_conditions.csv` (PASS cho k=2 v? k=3).
 
 ??y l? so s?nh c?ng b?ng theo ?i?u ki?n ?? giao; kh?ng tr?n k?t qu? gi?a hai gi? tr? k. C?c ch? s? k?t qu? chi ti?t c? t?i `outputs/tables/exp035_scaling_comparison.csv`.
+
+## 19/11/2026 | TV3 tích hợp EXP-037 và kiểm thử demo
+
+Fit log1p, RobustScaler và K-Means k=2 với n_init=20, seed 42 trên 5.878 khách RFM. Kiểm tra ID đạt, không thiếu, trùng hoặc dư ID. Cụm 0 có 3.509 khách, cụm 1 có 2.369 khách. PCA dùng dữ liệu đã chuẩn hóa để trực quan hóa, hai thành phần giữ khoảng 95,07% phương sai.
+
+Streamlit AppTest kiểm tra đạt hai tab, bảng hồ sơ, ảnh PCA và hai lượt gửi biểu mẫu. RFM (27, 8, 2866.74) cho cụm 1 và (284, 2, 406.30) cho cụm 0.
+
+Minh chứng: [nhãn toàn bộ](../outputs/tables/customer_clusters_full.csv), [hồ sơ cụm](../outputs/tables/final_cluster_profiles.csv), [cấu hình](../outputs/tables/final_model_config.json), [PCA](../outputs/figures/pca_2d_clusters.png), [pipeline](../models/customer_clustering_pipeline.joblib), [demo](../app.py).
