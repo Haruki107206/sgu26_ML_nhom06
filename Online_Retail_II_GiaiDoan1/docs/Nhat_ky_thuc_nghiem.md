@@ -205,4 +205,4 @@ Fit log1p, RobustScaler và K-Means k=2 với n_init=20, seed 42 trên 5.878 kh�
 
 Streamlit AppTest kiểm tra đạt hai tab, bảng hồ sơ, ảnh PCA và hai lượt gửi biểu mẫu. RFM (27, 8, 2866.74) cho cụm 1 và (284, 2, 406.30) cho cụm 0.
 
-Minh chứng: [nhãn toàn bộ](../outputs/tables/customer_clusters_full.csv), [hồ sơ cụm](../outputs/tables/final_cluster_profiles.csv), [cấu hình](../outputs/tables/final_model_config.json), [PCA](../outputs/figures/pca_2d_clusters.png), [pipeline](../models/customer_clustering_pipeline.joblib), [demo](../app.py).
+Minh chứng: [nhãn toàn bộ](../outputs/tables/customer_clusters_full.csv), [hồ sơ cụm](../outputs/tables/final_cluster_profiles.csv), [cấu hình](../outputs/tables/final_model_config.json), [PCA](../outputs/figures/pca_2d_clusters.png), [pipeline](../models/customer_clustering_pipeline.joblib).

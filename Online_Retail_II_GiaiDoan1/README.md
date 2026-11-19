@@ -88,7 +88,7 @@ python src/run_clustering_experiments.py
 
 Script chạy lượt so sánh K-Means/Ward/DBSCAN, làm mới lượt K-Means đa chỉ số của EXP-036, gọi `src/complete_model_evaluation.py` để tái lập bảng quyết định/kiểm tra độ ổn định RobustScaler/cập nhật hồ sơ cụm cuối, rồi đồng bộ hai workbook nhật ký. Các sheet sẵn có trong workbook được giữ lại khi ghi log.
 
-## EXP-037 và demo phân khúc
+## EXP-037 và hồ sơ phân khúc
 
 Từ thư mục dự án, với bảng RFM đã có:
 
@@ -96,9 +96,8 @@ Từ thư mục dự án, với bảng RFM đã có:
 python -m pip install -r requirements.txt
 python src/run_exp037.py
 python -X utf8 src/validate_exp037_customer_counts.py
-python -m streamlit run app.py
 ~~~
 
 EXP-037 tạo bảng nhãn toàn bộ, hồ sơ cụm và cấu hình trong outputs/tables,
 biểu đồ PCA trong outputs/figures và pipeline trong models.
-Demo nhận RFM gốc và áp dụng log1p, RobustScaler rồi K-Means.
+Dùng bảng hồ sơ cụm và biểu đồ PCA để trình bày kết quả EXP-037.
