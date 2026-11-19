@@ -1,4 +1,4 @@
-> **Cập nhật phạm vi TV3:** Phần bàn giao trình bày EXP-037 bằng bảng hồ sơ cụm và hình PCA. Các mục demo Streamlit bên dưới là kế hoạch ban đầu.
+
 
 # KẾ HOẠCH TRIỂN KHAI ĐỒ ÁN MÔN MÁY HỌC
 ## PHÂN KHÚC KHÁCH HÀNG BẰNG RFM VÀ HÀNH VI MUA HÀNG TRÊN BỘ DỮ LIỆU ONLINE RETAIL II
